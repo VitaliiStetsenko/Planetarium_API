@@ -97,9 +97,32 @@ Two custom permission classes drive access control:
 
 ## ⚙️ Running the project
 
+### Installing using GitHub
+
+Install PostgreSQL and create a database
+
 ```bash
-git clone <this-repo>
-cd PlanetariumApp
+git clone https://github.com/VitaliiStetsenko/Planetarium_API.git
+cd Planetarium_API
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+set DB_HOST=<your db hostname>
+set DB_NAME=<your db name>
+set DB_USER=<your db username>
+set DB_PASSWORD=<your db user password>
+set SECRET_KEY=<your secret key>
+python manage.py migrate
+python manage.py runserver
+```
+
+### Run with Docker
+
+Docker should be installed
+
+```bash
+git clone https://github.com/VitaliiStetsenko/Planetarium_API.git
+cd Planetarium_API
 cp .env.example .env   # fill in your own DB credentials
 docker-compose up --build
 ```
@@ -113,6 +136,69 @@ To fill the database with a couple of sample records for every endpoint:
 ```bash
 docker-compose exec planetarium python manage.py seed_demo_data
 ```
+
+---
+
+## 📸 Screenshots
+
+Below are screenshots of every endpoint.
+
+### `api/planetarium/`
+![planetarium_api](screenshots/planetarium_api.png)
+
+### `show_theme/`
+![show_theme/](screenshots/show_theme.png)
+
+### `show_theme/id/`
+![show_theme/id/](screenshots/img.png)
+
+### `astronomy_show/`
+![astronomy_show/](screenshots/img_1.png)
+
+### `astronomy_show/id/`
+![astronomy_show/id/](screenshots/img_2.png)
+
+### `astronomy_show/id/upload_image/`
+![astronomy_show/id/upload_image/](screenshots/img_3.png)
+
+### `planetarium_dome/`
+![planetarium_dome/](screenshots/img_4.png)
+
+### `planetarium_dome/id/`
+![planetarium_dome/id/](screenshots/img_5.png)
+
+### `show_session/`
+![show_session](screenshots/img_6.png)
+
+### `show_session/id/`
+![show_session/id/](screenshots/img_7.png)
+
+### `reservation/`
+![reservation/](screenshots/img_8.png)
+
+### `reservation/id/`
+![reservation/id/](screenshots/img_9.png)
+
+### `user/register/`
+![user/register/](screenshots/img_10.png)
+
+### `user/token/`
+![user/token/](screenshots/img_11.png)
+
+### `user/token/refresh/`
+![user/token/refresh/](screenshots/img_12.png)
+
+### `user/token/verify/`
+![user/token/verify/](screenshots/img_13.png)
+
+### `user/me/`
+![user/me/](screenshots/img_14.png)
+
+### Swagger UI (`/api/schema/swagger-ui/`)
+![Swagger UI](screenshots/img_15.png)
+
+### REDOC (`api/schema/redoc/`)
+![REDOC](screenshots/img_16.png)
 
 ---
 ---
@@ -155,14 +241,14 @@ API на Django REST Framework для просмотра космических 
 
 ## 🔍 Поиск и фильтрация
 
-| Эндпоинт | Query-параметр | Что делает                                                        |
-|---|---|-------------------------------------------------------------------|
+| Эндпоинт | Query-параметр | Что делает |
+|---|---|---|
 | `GET /astronomy_show/` | `theme` | Фильтр по одной или нескольким темам через запятую (`?theme=1,2`) |
-| `GET /astronomy_show/` | `title` | Частичное совпадение по названию, без учёта регистра              |
-| `GET /show_session/` | `theme` | Фильтр сеансов по теме шоу                                        |
-| `GET /show_session/` | `title` | Частичное совпадение по названию шоу                              |
-| `GET /show_session/` | `planetarium_dome` | Частичное совпадение по названию планетария                       |
-| `GET /show_session/` | `date` | Только сеансы в конкретную дату (`YYYY-MM-DD`)                    |
+| `GET /astronomy_show/` | `title` | Частичное совпадение по названию, без учёта регистра |
+| `GET /show_session/` | `theme` | Фильтр сеансов по теме шоу |
+| `GET /show_session/` | `title` | Частичное совпадение по названию шоу |
+| `GET /show_session/` | `planetarium_dome` | Частичное совпадение по названию планетария |
+| `GET /show_session/` | `date` | Только сеансы в конкретную дату (`YYYY-MM-DD`) |
 
 Все фильтры можно комбинировать — например, `?theme=1&date=2026-09-05` сузит выборку до одной темы за один день.
 
@@ -214,9 +300,32 @@ API на Django REST Framework для просмотра космических 
 
 ## ⚙️ Запуск проекта
 
+### Установка через GitHub
+
+Установите PostgreSQL и создайте базу данных
+
 ```bash
-git clone <ссылка-на-репозиторий>
-cd PlanetariumApp
+git clone https://github.com/VitaliiStetsenko/Planetarium_API.git
+cd Planetarium_API
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+set DB_HOST=<хост вашей БД>
+set DB_NAME=<имя вашей БД>
+set DB_USER=<имя пользователя БД>
+set DB_PASSWORD=<пароль пользователя БД>
+set SECRET_KEY=<ваш секретный ключ>
+python manage.py migrate
+python manage.py runserver
+```
+
+### Запуск через Docker
+
+Docker должен быть установлен
+
+```bash
+git clone https://github.com/VitaliiStetsenko/Planetarium_API.git
+cd Planetarium_API
 cp .env.example .env   # укажите свои данные для подключения к БД
 docker-compose up --build
 ```
@@ -230,3 +339,9 @@ API будет доступен по адресу `http://127.0.0.1:8001/`, до
 ```bash
 docker-compose exec planetarium python manage.py seed_demo_data
 ```
+
+## 📸 Скриншоты
+ 
+Скриншоты всех эндпоинтов приведены в английской версии выше.
+ 
+[![⬆️ К скриншотам](https://img.shields.io/badge/⬆️-К_скриншотам-blue?style=for-the-badge)](#-screenshots)
