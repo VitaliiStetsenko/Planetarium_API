@@ -131,6 +131,8 @@ The API will be available at `http://127.0.0.1:8001/`, Swagger docs at `/api/sch
 
 The user to login: email: user@gmail.com, password: testuser1337
 
+Create new user: /api/user/register/
+
 To fill the database with a couple of sample records for every endpoint:
 
 ```bash
@@ -333,6 +335,8 @@ docker-compose up --build
 API будет доступен по адресу `http://127.0.0.1:8001/`, документация Swagger — по `/api/schema/swagger-ui/`.
 
 Пользователь для логина: email: user@gmail.com, password: testuser1337
+
+Создать нового пользователя: /api/user/register/
 
 Чтобы наполнить базу парой демонстрационных записей на каждый эндпоинт:
 
